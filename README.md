@@ -1,15 +1,15 @@
-# think1
+ think1
 
-# 1. Opprett det delte NFS-volumet (hvis det ikke eksisterer)
+ 1. Opprett det delte NFS-volumet (hvis det ikke eksisterer)
 docker volume create --driver local --opt type=nfs --opt o=addr=192.168.1.100,rw --opt device=:/srv/nfs/swarm-cache traefik-data
 
-# 2. Opprett Cloudflare-hemmeligheten
+ 2. Opprett Cloudflare-hemmeligheten
 docker secret create cf_api_token ./cf_api_token.txt
 
-# 3. Opprett dashboard-hemmeligheten
+ 3. Opprett dashboard-hemmeligheten
 docker secret create dashboard_credentials ./dashboard_credentials.txt
 
-# 4. Opprett Traefik-konfigurasjonen
+ 4. Opprett Traefik-konfigurasjonen
 docker config create traefik-config ./traefik.yml
 
 docker network create --driver=overlay public-net
