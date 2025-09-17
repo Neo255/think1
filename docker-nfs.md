@@ -1,7 +1,8 @@
-# Rens opp gamle volumes først hvis de har vært installert før
+ Rens opp gamle volumes først hvis de har vært installert før
 docker volume rm traefik-data cloudflare-data poolserver-data
 
-# Opprett nye med riktige stier
+ Opprett nye med riktige stier
+
 docker volume create --driver local \
   --opt type=nfs \
   --opt o=addr=192.168.40.200,rw \
